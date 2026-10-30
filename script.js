@@ -1,45 +1,66 @@
-getData()
+//Lin put your code here
 
-async function getData() {
+
+// Gabriel's code
+const APOD_API = "https://science.nasa.gov/wp-json/wp/v2/apod-basic";
+
+const API_KEY = "MMFhrQgg6PqcFnGnwj9kdPfFnJQrmnrQGTpQMdjG";
+
+async function getBirthdayImage(birthdate) {
     try {
-        const response = await fetch(
-            'https://api.fbi.gov/wanted/v1/list', 
-          {
-             headers: { 'Access-Control-Allow-Origin': '*'}
-          }  
-            
-             
-        );
+        const url = `${APOD_API}?date=${birthdate}&api_key=${API_KEY}`;
+
+        const response = await fetch(url);
 
         if (!response.ok) {
-            throw new Error('Failed to fetch cat images');
+            throw new Error("Unable to retrieve NASA data.");
         }
 
         const data = await response.json();
-        console.log(data)
 
+        console.log(data);
 
-        // frame.innerHTML = '';
-        // currentItem = 0;
+        if (data.media_type !== "image") {
+            throw new Error("No photograph is available for this date.");
+        }
 
-        // data.forEach((cat, index) => {
-        //     const li = document.createElement('li');
-        //     const img = document.createElement('img');
+        document.getElementById("apodImage").src =
+            data.hdurl || data.url;
 
-        //     img.src = cat.url;
-        //     img.alt = 'Cat image ' + (index + 1);
+        document.getElementById("apodTitle").textContent =
+            data.title;
 
-        //     if (index === 0) {
-        //         li.classList.add('active');
-        //     }
+        document.getElementById("apodExplanation").textContent =
+            data.explanation;
 
-        //     li.appendChild(img);
-        //     frame.appendChild(li);
-        // });
+        document.getElementById("apodDate").textContent =
+            data.date;
 
-        // totalItems = frame.querySelectorAll('li').length;
+        document.getElementById("apodCredit").textContent =
+            data.credit || data.copyright || "NASA";
 
     } catch (error) {
-        console.error('Error fetching cat images:', error);
+        console.error("NASA API Error:", error);
+
+        document.getElementById("resultMessage").textContent =
+            error.message;
     }
 }
+
+
+document.getElementById("submitBirthday").addEventListener("click", () => {
+    const birthdate = document.getElementById("birthday").value;
+    
+    if (!birthdate) {
+        document.getElementById("resultMessage").textContent =
+            "Please enter your birthday.";
+        return;
+    }
+    const zodiac = getZodiacSign(birthdate);
+    document.getElementById("zodiacName").textContent =
+        "Your Zodiac Sign: " + zodiac;
+
+    
+    getBirthdayImage(birthdate);
+
+});
