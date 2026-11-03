@@ -1,5 +1,56 @@
-//Lin put your code here
+//Lin's code
+const zodiacSigns = [
+    { name: "Aries", start: "03-21", end: "04-19" },
+    { name: "Taurus", start: "04-20", end: "05-20" },
+    { name: "Gemini", start: "05-21", end: "06-20" },
+    { name: "Cancer", start: "06-21", end: "07-22" },
+    { name: "Leo", start: "07-23", end: "08-22" },
+    { name: "Virgo", start: "08-23", end: "09-22" },
+    { name: "Libra", start: "09-23", end: "10-22" },
+    { name: "Scorpio", start: "10-23", end: "11-21" },
+    { name: "Sagittarius", start: "11-22", end: "12-21" },
+    { name: "Capricorn", start: "12-22", end: "01-19" },
+    { name: "Aquarius", start: "01-20", end: "02-18" },
+    { name: "Pisces", start: "02-19", end: "03-20" }
+];
 
+function getZodiacSign(birthdate) {
+
+    const monthDay = birthdate.substring(5);
+
+    const sign = zodiacSigns.find(zodiac => {
+
+        if (zodiac.start > zodiac.end) {
+            return monthDay >= zodiac.start ||
+                   monthDay <= zodiac.end;
+        }
+
+        return monthDay >= zodiac.start &&
+               monthDay <= zodiac.end;
+    });
+
+    return sign ? sign.name : "Unknown";
+}
+
+function getZodiacSign(birthdate) {
+
+    const monthDay = birthdate.substring(5);
+
+    const sign = zodiacSigns.find(zodiac => {
+
+        if (zodiac.start > zodiac.end) {
+            return monthDay >= zodiac.start ||
+                   monthDay <= zodiac.end;
+        }
+
+        return monthDay >= zodiac.start &&
+               monthDay <= zodiac.end;
+    });
+
+    return sign ? sign.name : "Unknown";
+}
+
+    
 
 // Gabriel's code
 const APOD_API = "https://science.nasa.gov/wp-json/wp/v2/apod-basic";
@@ -8,15 +59,17 @@ const API_KEY = "MMFhrQgg6PqcFnGnwj9kdPfFnJQrmnrQGTpQMdjG";
 
 async function getBirthdayImage(birthdate) {
     try {
-        const url = `${APOD_API}?date=${birthdate}&api_key=${API_KEY}`;
-
+        const daysAgo = Math.floor((new Date() - new Date(birthdate)) / (1000 * 60 * 60 * 24));
+        const page =Math.floor(daysAgo / 25) + 1; // Calculate the page number based on days ago
+        const url = `${APOD_API}?page=${page}&api_key=${API_KEY}`; // Fetch the specific page 
         const response = await fetch(url);
 
         if (!response.ok) {
             throw new Error("Unable to retrieve NASA data.");
         }
 
-        const data = await response.json();
+        const list = await response.json();
+        const data = list.find(d => d.date === birthdate) || list[0]; //sends a list of specific date and if not found, sends the today's one in the list
 
         console.log(data);
 
@@ -30,13 +83,13 @@ async function getBirthdayImage(birthdate) {
         document.getElementById("apodTitle").textContent =
             data.title;
 
-        document.getElementById("apodExplanation").textContent =
+        document.getElementById("apodExplanation").innerHTML =
             data.explanation;
 
         document.getElementById("apodDate").textContent =
             data.date;
 
-        document.getElementById("apodCredit").textContent =
+        document.getElementById("apodCredit").innerHTML =
             data.credit || data.copyright || "NASA";
 
     } catch (error) {
