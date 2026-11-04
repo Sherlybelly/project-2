@@ -1,7 +1,9 @@
 # MEDP33100 - Project 2 Data Visualization
 
 ## Team members
-
+Xueyu Lin
+Gabriel Valdez
+Nicholas'Derasmo
 - Add all the names of all the team members
 
 ## Live Demo
@@ -15,7 +17,7 @@
 
 ## Features
 
-- List all (at least 3) distinct types of user interaction, such as filtering, sorting, modifying data views, or changing the data presentation.
+- Filtering : Our webstie uses filtering to let the user put in the date of their choice. The website fetches info from the API to find the image from the date.
 
 ## Technologies Used
 
