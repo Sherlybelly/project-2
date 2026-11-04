@@ -4,7 +4,7 @@
 Xueyu Lin
 Gabriel Valdez
 Nicholas'Derasmo
-- Add all the names of all the team members
+
 
 ## Live Demo
 
@@ -19,17 +19,21 @@ Nicholas'Derasmo
 
 - Filtering : Our webstie uses filtering to let the user put in the date of their choice. The website fetches info from the API to find the image from the date.
 
+- Modifying data: The website modifies data by letting the user enter a different date to get different image. The website then updates the image, zodiac sign, title, and explanation.
+
+- Button submission: The website uses button to let the user choose their date and submit that info to get their image.
+
 ## Technologies Used
 
 - List the technologies and tools used in the project:
     - **Languages**: HTML, CSS, JavaScript
     - **Libraries**: (e.g., GSAP for animations)
-    - **APIs**: Public APIs where the data set comes from
+    - **APIs**: The API we used is named APOD. The API contains several images about things that were discovered on specific dates, it also contain explanations and credits to the people who wrote them.
     - **Other**: Figma for design, Adobe Illustrator for illustrations, OpenAI for A.I. generated assets, etc.
 
 ## Future Enhancements
 
-- List any features you would’ve liked to add if given more time
+- We alter the API itself to add the zodiac signs in there instead of just making an array.
 
 ## Credits
 
