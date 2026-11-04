@@ -77,8 +77,9 @@ async function getBirthdayImage(birthdate) {
             throw new Error("No photograph is available for this date.");
         }
 
-        document.getElementById("apodImage").src =
-            data.hdurl || data.url;
+        const image = document.getElementById("apodImage");
+        image.src = data.hdurl;
+        image.style.display = "block";
 
         document.getElementById("apodTitle").textContent =
             data.title;
