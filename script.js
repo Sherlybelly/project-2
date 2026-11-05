@@ -14,7 +14,11 @@ const zodiacSigns = [
     { name: "Pisces", start: "02-19", end: "03-20", "image": "IMAGES/pisces.jpg" }
 ];
 
+
+
 function getZodiacSign(birthdate) {
+
+
 
     const monthDay = birthdate.substring(5);
 
@@ -22,35 +26,18 @@ function getZodiacSign(birthdate) {
 
         if (zodiac.start > zodiac.end) {
             return monthDay >= zodiac.start ||
-                   monthDay <= zodiac.end;
+                monthDay <= zodiac.end;
         }
 
         return monthDay >= zodiac.start &&
-               monthDay <= zodiac.end;
+            monthDay <= zodiac.end;
     });
 
-    return sign ? sign.name : "Unknown";
+    return sign;
+
 }
 
-function getZodiacSign(birthdate) {
 
-    const monthDay = birthdate.substring(5);
-
-    const sign = zodiacSigns.find(zodiac => {
-
-        if (zodiac.start > zodiac.end) {
-            return monthDay >= zodiac.start ||
-                   monthDay <= zodiac.end;
-        }
-
-        return monthDay >= zodiac.start &&
-               monthDay <= zodiac.end;
-    });
-
-    return sign ? sign.name : "Unknown";
-}
-
-    
 
 // Gabriel's code
 const APOD_API = "https://science.nasa.gov/wp-json/wp/v2/apod-basic";
@@ -60,7 +47,7 @@ const API_KEY = "MMFhrQgg6PqcFnGnwj9kdPfFnJQrmnrQGTpQMdjG";
 async function getBirthdayImage(birthdate) {
     try {
         const daysAgo = Math.floor((new Date() - new Date(birthdate)) / (1000 * 60 * 60 * 24));
-        const page =Math.floor(daysAgo / 25) + 1; // Calculate the page number based on days ago
+        const page = Math.floor(daysAgo / 25) + 1; // Calculate the page number based on days ago
         const url = `${APOD_API}?page=${page}&api_key=${API_KEY}`; // Fetch the specific page 
         const response = await fetch(url);
 
@@ -71,7 +58,7 @@ async function getBirthdayImage(birthdate) {
         const list = await response.json();
         const data = list.find(d => d.date === birthdate) || list[0]; //sends a list of specific date and if not found, sends the today's one in the list
 
-        console.log(data);
+        
 
         if (data.media_type !== "image") {
             throw new Error("No photograph is available for this date.");
@@ -104,17 +91,27 @@ async function getBirthdayImage(birthdate) {
 
 document.getElementById("submitBirthday").addEventListener("click", () => {
     const birthdate = document.getElementById("birthday").value;
-    
+
     if (!birthdate) {
         document.getElementById("resultMessage").textContent =
             "Please enter your birthday.";
         return;
     }
     const zodiac = getZodiacSign(birthdate);
-    document.getElementById("zodiacName").textContent =
-        "Your Zodiac Sign: " + zodiac;
 
+   
     
+    document.getElementById("zodiacName").textContent =
+        "Your Zodiac Sign: " + zodiac.name;
+
+    const zodiacImagebox = document.getElementById("zodiacResult");
+    zodiacImagebox.innerHTML = "loading zodiac image..."; 
+    const img = document.createElement("img");
+     img.src = zodiac.image;
+    zodiacImagebox.appendChild(img);
+
+
+
     getBirthdayImage(birthdate);
 
 });
