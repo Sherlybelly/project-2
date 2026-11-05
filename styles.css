@@ -235,3 +235,11 @@ body::before {
 #apodImage {
     display: none;
 }
+
+#zodiacResult {
+   display: block;
+  margin: 0 auto;
+  height: auto;
+  max-width: 70%;
+  width: 600px;
+}

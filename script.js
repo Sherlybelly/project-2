@@ -64,9 +64,10 @@ async function getBirthdayImage(birthdate) {
             throw new Error("No photograph is available for this date.");
         }
 
-        const image = document.getElementById("apodImage");
+        const image = document.getElementById("apodImage"); 
         image.src = data.hdurl;
         image.style.display = "block";
+       
 
         document.getElementById("apodTitle").textContent =
             data.title;
@@ -105,7 +106,7 @@ document.getElementById("submitBirthday").addEventListener("click", () => {
         "Your Zodiac Sign: " + zodiac.name;
 
     const zodiacImagebox = document.getElementById("zodiacResult");
-    zodiacImagebox.innerHTML = "loading zodiac image..."; 
+    zodiacImagebox.innerHTML = ""; 
     const img = document.createElement("img");
      img.src = zodiac.image;
     zodiacImagebox.appendChild(img);
