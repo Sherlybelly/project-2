@@ -33,7 +33,7 @@ function getZodiacSign(birthdate) {
             monthDay <= zodiac.end;
     });
 
-    return sign || "Unknown";
+    return sign;
 
 }
 
