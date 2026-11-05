@@ -1,7 +1,5 @@
 
 
-
-
 .nabla {
     font-family: "Nabla", system-ui;
     font-optical-sizing: auto;
@@ -42,6 +40,7 @@ body {
 h1 {
     font-family: "Nabla", system-ui;
     justify-content: center;
+    font-size: 10vh;
 
 
 
@@ -64,6 +63,7 @@ label {
     font-family: "Nabla", system-ui;
     display: flex;
     justify-content: center;
+    font-size: 5vh;
 }
 
 
@@ -71,6 +71,8 @@ button {
     display: flex;
      background: radial-gradient(circle, rgb(255, 249, 69), rgb(255, 180, 0));
     border: 3px solid rgb(255, 68, 0);
+
+  width: auto;
     font-family: "Audiowide", sans-serif;
     display: block;
     margin: 0 auto;
@@ -90,6 +92,7 @@ P {
     font-family: "Audiowide", sans-serif;
     font-weight: 100;
     justify-content: center;
+    font-size: 3vh;
 
 
 }
@@ -243,3 +246,15 @@ body::before {
   max-width: 70%;
   width: 600px;
 }
+
+#birthday, #submitBirthday , #musicButton {
+   
+    cursor: pointer;
+   padding: 2vh 4vh;
+    font-size: 1rem;
+    text-align: center;
+}
+
+#zodiacName, #apodTitle{
+    
+    font-size: 5vh;}
