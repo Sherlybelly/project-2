@@ -8,7 +8,7 @@ Nicholas'Derasmo
 
 ## Live Demo
 
-- Include a link to the live version of the project hosted on Render.
+https://sherlybelly.github.io/project-2/
 
 ## Project Overview
 
