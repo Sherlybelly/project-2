@@ -30,7 +30,7 @@ https://sherlybelly.github.io/project-2/
 - List the technologies and tools used in the project:
     - **Languages**: HTML, CSS, JavaScript
     - **APIs**: The API we used is named APOD. The API contains several images about things that were discovered on specific dates, it also contain explanations and credits to the people who wrote them.
-    - **Other**: Figma for design, Adobe Illustrator for illustrations, OpenAI for A.I. generated assets, etc.
+    - **Other**: Figma for design, Adobe Illustrator for illustrations, OpenAI for A.I. debugging, etc.
 
 ## Future Enhancements
 
@@ -40,3 +40,8 @@ https://sherlybelly.github.io/project-2/
 
 - Music: Tombaugh Regio by Runic, Font: Nabla and Audiowide, images: Alexandra Dikata.
 - W3 Schools input type = date tutorial
+- https://www.w3schools.com/jsref/jsref_floor.asp= rounds up to nearest interger
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/ 
+Reference/Global_Objects/Array/find = find a specific image 
+- https://codepen.io/SaharJalili/pen/EaWyaqJ = css stars 
+
