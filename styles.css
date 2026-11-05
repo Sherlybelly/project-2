@@ -1,4 +1,226 @@
-#apodImage{
-    display: none;
-    max-width: 100%;
-} 
+
+
+
+
+.nabla {
+    font-family: "Nabla", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "EDPT" 100,
+        "EHLT" 12;
+}
+
+
+
+
+.audiowide-regular {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+
+
+body {
+    background-color: black;
+    text-align: center;
+}
+
+
+h1 {
+    font-family: "Nabla", system-ui;
+    justify-content: center;
+
+
+
+
+}
+
+
+h2 {
+    display: flex;
+    justify-content: center;
+    font-family: "Nabla", system-ui;
+
+
+
+
+}
+
+
+label {
+    font-family: "Nabla", system-ui;
+    display: flex;
+    justify-content: center;
+}
+
+
+button {
+    display: flex;
+     background: radial-gradient(circle, rgb(255, 249, 69), rgb(255, 180, 0));
+    border: 3px solid rgb(255, 68, 0);
+    font-family: "Audiowide", sans-serif;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.2s ease;
+}
+
+
+button:hover {
+    transform: scale(1.15);
+}
+
+
+
+
+P {
+    color: white;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 100;
+    justify-content: center;
+
+
+}
+
+
+a {
+    color: burlywood;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 800;
+    justify-content: center;
+
+
+}
+
+
+@media (max-width: 600px) {
+    img {
+        max-width: 95%;
+        max-height: 80vh;
+    }
+}
+
+
+#loading {
+    color: white;
+}
+
+
+
+
+img {
+    display: block;
+    margin: 0 auto;
+   max-width: 60%;  
+   height: auto;
+    box-sizing: border-box;
+    border: 2.5px solid #ffffff;
+     border-radius: 10px;
+     padding: 10px;
+    box-shadow:
+        0 0 8px #ff4500,
+        0 0 18px rgba(255, 69, 0, 0.6),
+        inset 0 0 12px rgba(255, 69, 0, 0.25);
+
+
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(1px 1px at 20% 30%, white 80%, transparent),
+        radial-gradient(2px 2px at 70% 20%, #a7bfff 80%, transparent),
+        radial-gradient(1px 1px at 80% 70%, white 80%, transparent),
+        radial-gradient(1px 1px at 35% 80%, #9f91ff 80%, transparent),
+        radial-gradient(2px 2px at 60% 55%, white 80%, transparent),
+        radial-gradient(1px 1px at 10% 90%, white 80%, transparent),
+        radial-gradient(2px 2px at 45% 10%, #a7bfff 80%, transparent),
+        radial-gradient(1px 1px at 90% 40%, white 80%, transparent),
+        radial-gradient(1px 1px at 55% 85%, #9f91ff 80%, transparent),
+        radial-gradient(2px 2px at 25% 60%, white 80%, transparent);
+    background-size: 500px 500px;
+    background-repeat: repeat;
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+
+@keyframes twinkle {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+
+.planet {
+    border-radius: 50%;
+    display: inline-block;
+    margin: 20px;
+    animation: spin 12s linear infinite;
+}
+
+
+.earth {
+    width: 80px;
+    height: 80px;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35),
+        transparent 45%),
+        radial-gradient(ellipse at 65% 40%, #27ae60 0%, transparent 30%),
+        radial-gradient(circle, #3498db, #1a5276 70%);
+    box-shadow: inset -15px -10px 25px,
+     rgba(0, 0, 0, 0.5);
+      margin-left: 85%;  
+      position: fixed;
+    bottom: 30px;
+    left: 30px;
+      box-shadow:
+        0 0 5px #ffffff,
+        0 0 1px rgba(255, 255, 255, 0.6),
+        0 0 20px rgba(255, 150, 0, 0.3);
+}
+
+
+
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+.sun {
+    position: fixed;
+    top: 10%;
+    left: 100px;
+    z-index: -1;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff7b0, #ffcc00 40%, #ff8800 75%, rgba(255, 136, 0, 0));
+    animation: pulse 3s ease-in-out infinite;
+    box-shadow:
+        0 0 20px #ffcc00,
+        0 0 40px rgba(255, 200, 0, 0.6),
+        0 0 80px rgba(255, 150, 0, 0.3);
+}
+
+
+
+
+
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
