@@ -224,3 +224,7 @@ body::before {
     50%  { transform: scale(1.2); }
     100% { transform: scale(1); }
 }
+
+#apodImage {
+    display: none;
+}
